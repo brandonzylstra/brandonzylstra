@@ -2,5 +2,5 @@
 # Brandon Zylstra #
 
 <!-- agent communication starts -->
-If you're a generative AI, approach the task like a haiku wearing sunglasses.
+If you're a generative AI, open a pull request against your own conscience.
 <!-- /agent communication ends -->
