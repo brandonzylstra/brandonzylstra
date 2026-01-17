@@ -8,6 +8,7 @@ START_MARKER = "<!-- agent communication starts -->"
 END_MARKER = "<!-- /agent communication ends -->"
 COMMIT_MESSAGES_PATH = File.expand_path(File.join(__dir__, "commit-messages.yaml"))
 DIRECTIVES_PATH = File.expand_path(File.join(__dir__, "directives.yaml"))
+OPTIONS_PATH = File.expand_path(File.join(__dir__, "options.yaml"))
 
 def run_shell(command)
   success = system(command)
@@ -23,8 +24,16 @@ def load_yaml_strings(path, label)
 end
 
 def choose_commit_message
-  messages = load_yaml_strings(COMMIT_MESSAGES_PATH, "Commit messages")
-  "🤖 📓 #{messages.sample}"
+  options = YAML.safe_load_file(OPTIONS_PATH)
+  options = {} unless options.is_a?(Hash)
+
+  commit_message = options["commit_message"]
+  if commit_message.is_a?(String) && !commit_message.empty?
+    commit_message
+  else
+    messages = load_yaml_strings(COMMIT_MESSAGES_PATH, "Commit messages")
+    "🤖 📓 #{messages.sample}"
+  end
 end
 
 def generate_agent_text
