@@ -10,8 +10,10 @@
   - [x] An optional static commit message such as "update README.md"
   - [ ] Frequency of automatic updates
   - [ ] Opening & closing comments in file
-  - [ ] Name of file to update (defaulting to README.md)
-  - [ ] Preamble & afterward
+  - [ ] Path to Git repo containing README to update
+  - [ ] Name (and relative path within repo) of file to update (defaulting to README.md)
+  - [ ] Preamble & afterward (such as emoji)
+  - [ ] Location of log (defaulting to /tmp/rotation
 - [ ] Add a command or script to update the crontab
 - [ ] Add the ability to generate new Snarky directives on-the-fly
   - [ ] Support Ollama
